@@ -1,15 +1,12 @@
 # FractionScale
-
 A handy little simplified fraction script. No reductions, no complicated features. Just used to keep track of integers.
 
 ## Constructors
 
 ### FractionScale(int num, int den)
-
 Initializes the numerator and denominator with the provided values.
 
 ### FractionScale(int integer)
-
 Initializes both numerator and denominator with the same integer value.
 
 ### FractionScale(FractionScale f)
@@ -18,15 +15,12 @@ Copy constructor that initializes the numerator and denominator with the values 
 ## Getters:
 
 ### Get()
-
 Returns the numerator.
 
 ### GetNumerator()
-
 Returns the numerator.
 
 ### GetDenominator()
-
 Returns the denominator.
 
 ## Setters:
