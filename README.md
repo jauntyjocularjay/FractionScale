@@ -1,5 +1,5 @@
 # FractionScale
-A handy little simplified fraction script. No reductions, no complicated features. Just used to keep track of integers.
+A handy little simplified fraction script. No reductions, no complicated features. Just used to keep track of integers. The companion `UFractionsScale` handles larger integers but incorporates a boolean to keep track of positivity or negativity.
 
 ## Constructors
 
