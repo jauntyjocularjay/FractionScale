@@ -82,6 +82,10 @@ public class UFractionScale
     {
         Increment((uint) amount);
     }
+    public void Reset()
+    {
+        numerator = 0;
+    }
     public uint ToInt()
     {
         return numerator / denominator;
@@ -102,12 +106,10 @@ public class UFractionScale
     {
         return numerator >= denominator;
     }
-
     public bool IsPositive()
     {
         return isPositive;
     }
-
     public bool IsNegative()
     {
         return !isPositive;
