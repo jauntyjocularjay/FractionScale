@@ -13,17 +13,10 @@ public class UFractionScale
         denominator = den;
         isPositive = isPos;
     }
-    public UFractionScale(uint integer, bool isPos=true)
-    {
-        numerator = integer;
-        denominator = integer;
-        isPositive = isPos;
-    }
-    public UFractionScale(UFractionScale f)
-    {
-        numerator = f.numerator;
-        denominator = f.denominator;
-    }
+    public UFractionScale(int num, int den, bool isPos=true) : this((uint) num, (uint) den, isPos) {}
+    public UFractionScale(uint integer, bool isPos=true) : this(integer, integer, isPos) {}
+    public UFractionScale(int integer, bool isPos=true) : this((uint) integer, (uint) integer, isPos) {}
+    public UFractionScale(UFractionScale f) : this(f.numerator, f.denominator, f.isPositive) {}
     public uint Get()
     {
         return numerator;
@@ -84,6 +77,10 @@ public class UFractionScale
         {
             numerator += amount;
         }
+    }
+    public void Increment(int amount)
+    {
+        Increment((uint) amount);
     }
     public uint ToInt()
     {
