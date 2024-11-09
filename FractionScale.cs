@@ -9,16 +9,8 @@ public class FractionScale
         numerator = num;
         denominator = den;
     }
-    public FractionScale(int integer)
-    {
-        numerator = integer;
-        denominator = integer;
-    }
-    public FractionScale(FractionScale f)
-    {
-        numerator = f.numerator;
-        denominator = f.denominator;
-    }
+    public FractionScale(int integer) : this(integer, integer) {}
+    public FractionScale(FractionScale f) : this(f.numerator, f.denominator) {}
     public int Get()
     {
         return numerator;
