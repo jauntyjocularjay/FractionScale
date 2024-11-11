@@ -17,6 +17,7 @@ public class UFractionScale
     public UFractionScale(uint integer, bool isPos=true) : this(integer, integer, isPos) {}
     public UFractionScale(int integer, bool isPos=true) : this((uint) integer, (uint) integer, isPos) {}
     public UFractionScale(UFractionScale f) : this(f.numerator, f.denominator, f.isPositive) {}
+
     public uint Get()
     {
         return numerator;
