@@ -1,6 +1,7 @@
 
 public class FractionScale
 {
+    static FractionScale zero = new FractionScale(0,0);
     int numerator;
     readonly int denominator;
 
@@ -11,6 +12,8 @@ public class FractionScale
     }
     public FractionScale(int integer) : this(integer, integer) {}
     public FractionScale(FractionScale f) : this(f.numerator, f.denominator) {}
+    public FractionScale() : this(0,0) {}
+
     public int Get()
     {
         return numerator;

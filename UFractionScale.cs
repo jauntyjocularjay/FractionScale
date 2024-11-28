@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class UFractionScale
 {
+    static UFractionScale zero = new UFractionScale(0,0);
     uint numerator;
     readonly uint denominator;
     bool isPositive;
@@ -17,6 +18,8 @@ public class UFractionScale
     public UFractionScale(uint integer, bool isPos=true) : this(integer, integer, isPos) {}
     public UFractionScale(int integer, bool isPos=true) : this((uint) integer, (uint) integer, isPos) {}
     public UFractionScale(UFractionScale f) : this(f.numerator, f.denominator, f.isPositive) {}
+    public UFractionScale() : this(0,0,true){}
+
     public uint Get()
     {
         return numerator;
