@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class UFractionScale
 {
-    static UFractionScale zero = new UFractionScale(0,0);
+    public static UFractionScale zero = new UFractionScale(0,0);
     uint numerator;
     readonly uint denominator;
     bool isPositive;
