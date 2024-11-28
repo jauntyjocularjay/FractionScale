@@ -1,7 +1,7 @@
 
 public class FractionScale
 {
-    static FractionScale zero = new FractionScale(0,0);
+    public static FractionScale zero = new FractionScale(0,0);
     int numerator;
     readonly int denominator;
 
