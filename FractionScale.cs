@@ -1,4 +1,4 @@
-namespace Assets.DMBTools.FractionScale
+﻿namespace DMBTools
 {
     public class FractionScale
     {
