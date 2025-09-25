@@ -1,4 +1,6 @@
-﻿namespace DMBTools
+﻿using System;
+
+namespace DMBTools
 {
     public class FractionScale
     {
@@ -50,6 +52,14 @@
         public int ToInt()
         {
             return numerator / denominator;
+        }
+        public int ToIntFloor()
+        {
+            return (int) Math.Floor(this.ToFloat());
+        }
+        public int ToIntCeiling()
+        {
+            return (int) Math.Ceiling(this.ToFloat());
         }
         public double ToDouble()
         {
