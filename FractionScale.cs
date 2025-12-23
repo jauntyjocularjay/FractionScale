@@ -70,7 +70,7 @@ namespace DMBTools
         {
             return $"{_numerator} / {_denominator}";
         }
-        public bool Full()
+        public bool IsFull()
         {
             return _numerator >= _denominator;
         }
