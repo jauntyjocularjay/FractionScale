@@ -6,43 +6,22 @@ namespace DMBTools
     {
         public static readonly FractionScale zero = new FractionScale(0, 0);
         int _numerator;
-        public int Numerator { get; set; }
         readonly int _denominator;
-        public int Denominator { get; }
-        public FractionScale(int num, int den)
+        public FractionScale(int num = 0, int den = 0)
         {
+            if(den == 0 && num != 0) throw new ArgumentException("A fraction cannot have a zero denominator and a non-zero numerator.");
             _numerator = num;
             _denominator = den;
         }
         public FractionScale(int integer) : this(integer, 1) { }
         public FractionScale(FractionScale f) : this(f._numerator, f._denominator) { }
-        public FractionScale() : this(0, 0) { }
-
-        public int GetNumerator()
-        {
-            return _numerator;
-        }
-        public void SetNumerator(int n)
-        {
-            _numerator = n;
-        }
-        public int GetDenominator()
-        {
-            return _denominator;
-        }
-        public void Decrement()
-        {
-            _numerator -= 1;
-        }
-        public void Decrement(int amount)
+        public int Numerator { get; set; }
+        public int Denominator { get; }
+        public void Decrement(int amount = 1)
         {
             _numerator -= amount;
         }
-        public void Increment()
-        {
-            _numerator += 1;
-        }
-        public void Increment(int amount)
+        public void Increment(int amount = 1)
         {
             _numerator += amount;
         }
