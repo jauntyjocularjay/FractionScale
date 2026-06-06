@@ -5,77 +5,76 @@ namespace DMBTools
     public class FractionScale
     {
         public static readonly FractionScale zero = new FractionScale(0, 0);
-        int numerator;
-        readonly int denominator;
-
-        public FractionScale(int num, int den)
+        int _numerator;
+        readonly int _denominator;
+        public FractionScale(int num = 0, int den = 0)
         {
-            numerator = num;
-            denominator = den;
+            if(den == 0 && num != 0) throw new ArgumentException("A fraction cannot have a zero denominator and a non-zero numerator.");
+            _numerator = num;
+            _denominator = den;
         }
-        public FractionScale(int integer) : this(integer, integer) { }
-        public FractionScale(FractionScale f) : this(f.numerator, f.denominator) { }
-        public FractionScale() : this(0, 0) { }
-
-        public int Get()
+        public FractionScale(int integer) : this(integer, 1) { }
+        public FractionScale(FractionScale f) : this(f._numerator, f._denominator) { }
+        public int Numerator { get; set; }
+        public int Denominator { get; }
+        public void Decrement(int amount = 1)
         {
-            return numerator;
+            _numerator -= amount;
         }
-        public int GetNumerator()
+        public void Increment(int amount = 1)
         {
-            return numerator;
-        }
-        public void SetNumerator(int n)
-        {
-            numerator = n;
-        }
-        public int GetDenominator()
-        {
-            return denominator;
-        }
-        public void Decrement()
-        {
-            numerator -= 1;
-        }
-        public void Decrement(int amount)
-        {
-            numerator -= amount;
-        }
-        public void Increment()
-        {
-            numerator += 1;
-        }
-        public void Increment(int amount)
-        {
-            numerator += amount;
+            _numerator += amount;
         }
         public int ToInt()
         {
-            return numerator / denominator;
+            return _numerator / _denominator;
         }
         public int ToIntFloor()
         {
-            return (int) Math.Floor(this.ToFloat());
+            return (int)Math.Floor(this.ToFloat());
         }
         public int ToIntCeiling()
         {
-            return (int) Math.Ceiling(this.ToFloat());
+            return (int)Math.Ceiling(this.ToFloat());
         }
         public double ToDouble()
         {
-            return (double)numerator / (double)denominator;
+            return (double)_numerator / (double)_denominator;
         }
         public float ToFloat()
         {
-            return (float)numerator / (float)denominator;
+            return (float)_numerator / (float)_denominator;
         }
         override public string ToString()
         {
-            return $"{numerator} / {denominator}";
+            return $"{_numerator} / {_denominator}";
         }
-        public bool Full()
+        public bool IsFull()
         {
-            return numerator >= denominator;
+            return _numerator >= _denominator;
+        }
+        FractionScale Add(FractionScale f)
+        {
+            if (this.Denominator == f.Denominator)
+            {
+                return new FractionScale(this.Numerator + f.Numerator, this.Denominator);
+            }
+            else
+            {
+                int new_denominator = this.Denominator * f.Denominator;
+
+                FractionScale fraction_a = new FractionScale
+                (
+                    this.Numerator * f.Denominator,
+                    new_denominator
+                );
+                FractionScale fraction_b = new FractionScale
+                (
+                    f.Numerator * this.Denominator,
+                    new_denominator
+                );
+                return fraction_a.Add(fraction_b);
+            }
         }
     }
 }
